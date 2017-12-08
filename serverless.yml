@@ -57,27 +57,31 @@ provider:
 
 functions:
   post:
-    handler: lambda/post.post
+    request:
+      passThrough: WHEN_NO_TEMPLATES
+      template:
+        application/x-www-form-urlencoded: '{ "body" : "$input.body" }'
+    handler: lambdas/post.post
     events:
       - http:
           method: post
   config:
-    handler: lambda/config.config
+    handler: lambdas/config.config
     events:
       - http:
           method: config
   delete:
-    handler: lambda/delete.delete
+    handler: lambdas/delete.delete
     events:
       - http:
           method: delete
   get:
-    handler: lambda/get.get
+    handler: lambdas/get.get
     events:
       - http:
           method: get
   update:
-    handler: lambda/update.update
+    handler: lambdas/update.update
     events:
       - http:
           method: update

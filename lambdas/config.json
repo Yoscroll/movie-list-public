@@ -1,0 +1,7 @@
+{
+  "host": "ianacosta.cb9co1xxtizk.us-west-2.rds.amazonaws.com",
+  "database": "movies_ian",
+  "user": "ian",
+  "password": "password",
+  "port": "5432",
+}
