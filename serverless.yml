@@ -64,6 +64,7 @@ functions:
     handler: lambdas/post.post
     events:
       - http:
+          path: post
           method: post
   config:
     handler: lambdas/config.config
