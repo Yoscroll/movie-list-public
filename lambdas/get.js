@@ -24,10 +24,17 @@ module.exports.get = (event, context, callback) => {
  })
  .then(data=>{
    console.log(data.rows)
- })
- const response = {
+   const response = {
    statusCode: 200,
-   body:"YAY",
+   headers: {
+          "Access-Control-Allow-Origin":  "*",
+          "Access-Control-Allow-Credentials": true,
+          "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS, HEAD"
+         },
+    body: JSON.stringify({
+      message: data
+    })
    };
- callback(null, response);
+   callback(null, response);
+ })
 }

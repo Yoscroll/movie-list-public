@@ -66,26 +66,24 @@ functions:
       - http:
           path: post
           method: post
-  config:
-    handler: lambdas/config.config
-    events:
-      - http:
-          method: config
   delete:
     handler: lambdas/delete.delete
     events:
       - http:
           method: delete
+          path: delete
   get:
     handler: lambdas/get.get
     events:
       - http:
           method: get
+          path: get
   update:
     handler: lambdas/update.update
     events:
       - http:
-          method: update
+          method: put
+          path: update
 
 
 
