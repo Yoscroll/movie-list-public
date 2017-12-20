@@ -8,6 +8,12 @@
 <body>
 	<div id="container">
 		<button id="getPics" onclick="postMovie()">Insert Movie</button>
+		<form method="POST" action="https://6lb8vtwq51.execute-api.us-west-2.amazonaws.com/dev/post">
+			Title: <input type="text" name="movieTitle" value="Mickey"><br>
+			Year: <input type="text" name="movieYear" value="1111"><br>
+			Genre <input type="text" name="movieGenre" value="cool"><br>
+			<input type="submit" value="Submit">
+		</form>
 		<table id="dataTable">
 			<tr>
 			    <th>Movie #</th>

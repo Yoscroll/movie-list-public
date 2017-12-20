@@ -66,6 +66,7 @@ functions:
       - http:
           path: post
           method: post
+          cors: true
   delete:
     handler: lambdas/delete.delete
     events:
