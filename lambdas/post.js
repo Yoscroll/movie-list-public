@@ -13,9 +13,8 @@ const Client = new Pool({
 });
 
 module.exports.post = (event, context, callback) => {
-  const params = querystring.parse(event.body);
-  const postData = require(params);
-  let postMovie = "INSERT INTO "+table+" VALUES ("+postData.id+", '"+postData.title+"', '"+postData.year+"', '"+postData.genre+"');";
+  const params = JSON.parse(event.body);
+  let postMovie = "INSERT INTO "+table+" VALUES ("+params.id+", '"+params.title+"', '"+params.year+"', '"+params.genre+"');";
   Client.connect()
     .then(client => {
       console.log('connected to DB ' + Client.options.database);
@@ -27,8 +26,7 @@ module.exports.post = (event, context, callback) => {
     statusCode: 200,
     headers: {
       "Access-Control-Allow-Origin":  "*",
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS, HEAD"
+      "Access-Control-Allow-Credentials": true
     },
     body: {
       message: 'Go Serverless v1.0! Your function executed successfully!',
